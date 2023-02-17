@@ -1,17 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigurationService } from './configuration/configuration/configuration.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService, ConfigurationService],
+  providers: [AppService],
 })
-export class AppModule {
-  static port: number;
-
-  constructor(private readonly configurationService: ConfigurationService){
-    AppModule.port = this.configurationService.port as number;
-  }
-}
+export class AppModule {}

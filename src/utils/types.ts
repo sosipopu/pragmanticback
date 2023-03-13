@@ -1,11 +1,12 @@
-export type CreateUserParams = {
+export type UserParams = {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
 };
 
-export type UpdateUserParams = {
+export type User = {
+  id: number;
   firstName: string;
   lastName: string;
   email: string;

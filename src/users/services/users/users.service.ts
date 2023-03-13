@@ -29,10 +29,10 @@ export class UsersService {
   }
 
   findUserById(id: number) {
-    return this.userRepository.find({
-      where: {
-        id: id,
-      },
-    });
+    return this.userRepository.findOneBy({ id });
+  }
+
+  findUserByEmail(email: string) {
+    return this.userRepository.findOneBy({ email });
   }
 }

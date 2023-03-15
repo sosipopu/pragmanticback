@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './typeorm/entities/User';
+import { UserEntity } from './typeorm/entities/User';
 import { UsersModule } from './users/users.module';
 import { type, host, port, username, password, database } from './mysqlcred';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -17,10 +18,11 @@ import { type, host, port, username, password, database } from './mysqlcred';
       username: username,
       password: password,
       database: database,
-      entities: [User],
+      entities: [UserEntity],
       synchronize: true,
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -18,7 +18,6 @@ export class AppController {
   @UseGuards(JwtAuthGuard)
   @Get('protected')
   getHello(@Request() req): string {
-    // TODO: require an Bearer token, validate token
     return req.user;
   }
 }

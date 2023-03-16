@@ -11,7 +11,7 @@ async function bootstrap() {
     .setTitle('Pragmantic API')
     .setDescription('Endpoints')
     .setVersion('1.0')
-    .addTag('Users')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

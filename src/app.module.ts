@@ -10,7 +10,7 @@ import { typeOrmConfigAsync } from './config/typeorm.config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: './.development.env',
+      envFilePath: './.preprod.env',
     }),
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
     UsersModule,
